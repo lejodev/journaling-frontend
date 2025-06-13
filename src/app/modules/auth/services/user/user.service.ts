@@ -12,7 +12,7 @@ export class UserService {
   }
 
   create(user: User): Observable<User> {
-    return this.httpService.post("/auth/signup", user)
+    return this.httpService.post("auth/signup", user)
   }
 
   login(user: User): Observable<User> {
