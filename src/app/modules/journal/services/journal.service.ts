@@ -6,8 +6,10 @@ import { HttpService } from 'src/app/core/http/http.service';
 })
 export class JournalService {
 
-  constructor(private http: HttpService) { }
+  constructor(private readonly http: HttpService) { }
 
-  getEntrPerUser(userId: string) 
+  getEntriesPerUser(userId: string) {
+    return this.http.get(`journal/my_journals/${userId}`)
+  }
 
 }
