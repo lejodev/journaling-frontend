@@ -5,19 +5,29 @@ import { AuthComponent } from './modules/auth/components/auth/auth.component';
 import { SignUpComponent } from './modules/auth/components/sign-up/sign-up.component';
 import { SigninComponent } from './modules/auth/components/signin/signin.component';
 import { DashboardComponent } from './modules/dashboard/components/dashboard/dashboard.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: AuthComponent,
     children: [
-      {path: '', redirectTo: 'auth/signin', pathMatch: 'full'},
-      {path: 'auth/signin', component: SigninComponent},
-      {path: 'auth/signup', component: SignUpComponent},
+      { path: '', redirectTo: 'auth/signin', pathMatch: 'full' },
+      { path: 'auth/signin', component: SigninComponent },
+      { path: 'auth/signup', component: SignUpComponent },
     ]
   },
-  {path: "dashboard",
-    component: DashboardComponent
+  {
+    path: "",
+    component: LayoutComponent,
+    children: [
+      {
+        path: "", redirectTo:'dashboard', pathMatch: 'full'
+      }, {
+        path: 'dashboard',
+        component: DashboardComponent
+      }
+    ]
   }
   // {
   //   path: '**',

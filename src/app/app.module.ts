@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     AuthModule,
     SharedModule,
     HttpClientModule,
-    DashboardModule
+    DashboardModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

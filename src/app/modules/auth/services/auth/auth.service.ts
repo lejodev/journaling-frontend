@@ -23,7 +23,7 @@ export class AuthService {
     return this.getToken(token) !== null;
   }
 
-  logOut(token: string): void {
+  logOut(): void {
     localStorage.removeItem("journalUserToken");
   }
 
