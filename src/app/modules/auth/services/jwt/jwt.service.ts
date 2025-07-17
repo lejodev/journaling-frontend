@@ -9,9 +9,7 @@ export class JwtService {
   constructor() { }
 
   decodeToken(token: string): any {
-    try {
-      console.log("token de mierda", token);
-      
+    try {      
       return jwtDecode(token);
     } catch (error) {
       console.error('Invalid token', error);

@@ -1,10 +1,33 @@
-<mat-toolbar>
-    <mat-nav-list class="list-horizontal">
+<mat-toolbar color="primary" class="app-header">
+    <a routerLink="/dashboard" class="app-title-link">
+        <span>My Journal App</span>
+    </a>
+
+
+    <mat-nav-list class="header-nav-list">
         <mat-list-item>
-            <a href="#">home</a>
+            <a mat-button routerLink="/dashboard" routerLinkActive="active-link" aria-label="Go to home dashboard">
+                Home
+            </a>
         </mat-list-item>
+
         <mat-list-item>
-            <a  (click)="onLClickLogout()">logout</a>
+            <a mat-button routerLink="/new" routerLinkActive="active-link" aria-label="Create a new journal entry">
+                New Entry
+            </a>
+        </mat-list-item>
+
+        <!-- <mat-list-item *ngIf="isLoggedIn">
+            <a mat-button routerLink="/my-profile" routerLinkActive="active-link" aria-label="View your profile">
+                Profile
+            </a>
+        </mat-list-item> -->
+
+        <mat-list-item>
+            <button mat-button (click)="onLClickLogout()" aria-label="Log out from your account">
+                Logout
+            </button>
         </mat-list-item>
     </mat-nav-list>
-</mat-toolbar>
+
+    </mat-toolbar>

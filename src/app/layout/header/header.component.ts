@@ -9,12 +9,17 @@ import { AuthService } from 'src/app/modules/auth/services/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  isloggedIn: boolean = false;
+
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router
   ) { }
 
   ngOnInit(): void {
+    // if (this.authService.isLoggedIn()) {
+
+    // }
   }
 
   onLClickLogout() {
@@ -23,11 +28,8 @@ export class HeaderComponent implements OnInit {
       this.authService.logOut()
       this.router.navigate(['/auth/signin'])
     } catch (error) {
-      console.log(error);
-      
-      
+      console.log(error);      
     }
-    console.log('Logout clicked');
   }
 
 }

@@ -1,0 +1,69 @@
+.app-header {
+  background-color: #1A2B4C;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+
+  .app-title-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem; 
+    font-weight: 500; 
+    display: flex;
+    align-items: center;
+    height: 100%; 
+  }
+
+  .header-nav-list {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    mat-list-item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+
+      a.mat-button,
+      button.mat-button {
+        height: 100%;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+
+        &.active-link {
+          background-color: rgba(255, 255, 255, 0.15);
+          border-bottom: 2px solid white;
+          border-radius: 0;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.08);
+        }
+      }
+    }
+  }
+
+  // Example for a responsive menu button (if you add one)
+  .menu-button {
+    display: none; // Hide by default on larger screens
+  }
+
+  // Media query for smaller screens (example for a typical mobile breakpoint)
+  @media (max-width: 768px) {
+    .header-nav-list {
+      display: none; // Hide the horizontal navigation
+    }
+    .menu-button {
+      display: block; // Show the menu icon for responsive menu
+    }
+    .app-title-link {
+      font-size: 1.1rem; // Adjust title size for small screens
+    }
+  }
+}

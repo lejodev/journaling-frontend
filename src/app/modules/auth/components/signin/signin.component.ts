@@ -18,10 +18,10 @@ export class SigninComponent implements OnInit {
   isLoading = false;
 
   constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private userService: UserService,
-    private authservice: AuthService
+    private readonly fb: FormBuilder,
+    private readonly router: Router,
+    private readonly userService: UserService,
+    private readonly authservice: AuthService
   ) {
     this.signInForm = this.fb.group({
       username: ["", [Validators.required]],
@@ -29,8 +29,7 @@ export class SigninComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   async onSubmit() {
     try {
@@ -40,7 +39,7 @@ export class SigninComponent implements OnInit {
           next: (res) => {
             const response = res as { token: string };
             console.log(response);
-            
+
             console.log(response.token);
             localStorage.setItem("journalUserToken", response.token)
             this.router.navigate(['/dashboard']);

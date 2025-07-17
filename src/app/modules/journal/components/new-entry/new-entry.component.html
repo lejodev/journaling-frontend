@@ -1,0 +1,22 @@
+<mat-card>
+    <form [formGroup]="newEntryForm">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="my journal title">
+            <mat-error *ngIf="newEntryForm.get('title')?.hasError('required') && newEntryForm.get('title')?.touched" >
+                title is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Content</mat-label>
+            <textarea matInput formControlName="content" placeholder="my journal content"></textarea>
+            <mat-error *ngIf="newEntryForm.get('content')?.hasError('required') && newEntryForm.get('content')?.touched" >
+                content is required
+            </mat-error>
+        </mat-form-field>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="saveEntry()" [disabled]="newEntryForm.invalid">Save</button>
+            <button mat-raised-button color="warn" (click)="cancelEntry()">Cancel</button>
+        </mat-card-actions>
+    </form>
+</mat-card>
