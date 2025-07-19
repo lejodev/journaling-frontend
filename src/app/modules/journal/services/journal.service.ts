@@ -20,16 +20,9 @@ export class JournalService {
 
   createJournal(journal: Entry) {
 
-    // const decodedToken = this.jwtService.decodeToken('journalUserToken')
-    // console.log("decodedToken", decodedToken);
+    console.log(journal);
     
-    
-    const body = {
-      title: journal.title,
-      content: journal.content,
-      // userId: 
-    };
-    return this.http.post('journal', body );
+    return this.http.post('journal', journal );
   }
 
 }

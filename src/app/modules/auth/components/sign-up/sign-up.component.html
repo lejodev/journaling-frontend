@@ -1,8 +1,8 @@
 <div class="signUp-container">
     <form [formGroup]="signUpFormGroup" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="outline">
-            <mat-label for="name">name</mat-label>
-            <input matInput type="text" name="name" id="name" formControlName="name">
+            <mat-label for="fullname">Full name</mat-label>
+            <input matInput type="text" name="fullname" id="fullname" formControlName="fullname">
         </mat-form-field>
         <mat-form-field>
             <mat-label for="username">username</mat-label>
@@ -14,7 +14,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label for="password">password</mat-label>
-            <input matInput type="password" name="password" id="password" formControlName="password">
+            <input matInput type="password" name="passwordhash" id="password" formControlName="passwordhash">
         </mat-form-field>
         <button type="submit">Submit it</button>
     </form>

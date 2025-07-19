@@ -19,6 +19,6 @@ export class UserService {
   login(user: User): Observable<User | LoginResponse> {
 
     const { username, password } = user
-    return this.httpService.post("auth/signin", { username, password })
+    return this.httpService.post("auth/signin", { username, "passwordhash": password  })
   }
 }
