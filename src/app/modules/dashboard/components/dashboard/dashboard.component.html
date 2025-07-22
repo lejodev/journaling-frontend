@@ -1,3 +1,6 @@
-<ul>
-    <li *ngFor="let item of journalList">{{item.title}}</li>
-</ul>
+<mat-card class="dashboard-card">
+
+    <div class="journal-grid">
+        <app-journal-card *ngFor="let item of journalList" [journal]="item"></app-journal-card>
+    </div>
+</mat-card>

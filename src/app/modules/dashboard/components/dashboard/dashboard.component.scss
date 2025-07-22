@@ -1,0 +1,14 @@
+
+.dashboard-card {
+   min-height: 100vh;
+   background-image: url('/assets/images/background-main.webp');
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 25px;
+   }
+}
