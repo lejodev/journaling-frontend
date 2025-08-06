@@ -22,6 +22,9 @@ export class AuthInterceptor implements HttpInterceptor {
     // Here I need to clone the request, because it is immutable
     if (token) {
 
+      console.log('TOKEN IN REQUEST', token);
+      
+
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`

@@ -42,7 +42,7 @@ export class SigninComponent implements OnInit {
 
             console.log(response.token);
             localStorage.setItem("journalUserToken", response.token)
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/my-entries']);
           }, error: (err) => {
             console.log("ERROR", err);
 

@@ -6,6 +6,7 @@ import { SigninComponent } from './modules/auth/components/signin/signin.compone
 import { DashboardComponent } from './modules/dashboard/components/dashboard/dashboard.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NewEntryComponent } from './modules/journal/components/new-entry/new-entry.component';
+import { JournalDetailComponent } from './modules/dashboard/components/journal-detail/journal-detail.component';
 
 const routes: Routes = [
   {
@@ -22,10 +23,14 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: "", redirectTo: 'dashboard', pathMatch: 'full'
+        path: "", redirectTo: 'my-entries', pathMatch: 'full'
       }, {
-        path: 'dashboard',
+        path: 'my-entries',
         component: DashboardComponent
+      },
+      {
+        path: 'my-entries/:id',
+        component: JournalDetailComponent
       },
       {
         path: 'new',

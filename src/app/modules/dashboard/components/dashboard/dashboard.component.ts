@@ -24,16 +24,19 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     try {
+      console.log('IINN');
+      
       const token = this.authService.getToken("journalUserToken");
       if (!token || !this.authService.isLoggedIn("journalUserToken")) {
         this.router.navigate(['/auth/signin']);
         return;
       }
       this.decodedToken = this.jwt.decodeToken(token);
-      this.journalService.getEntriesPerUser(this.decodedToken.user.id)
-      console.log('Token:', token, 'Decoded:', this.decodedToken);
+      console.log(this.decodedToken);
+      
+      console.log('Token:', token, 'Decoded:', this.decodedToken.id);
 
-      this.journalService.getEntriesPerUser(this.decodedToken.user.id).subscribe((res: unknown) => {
+      this.journalService.getEntriesPerUser().subscribe((res: unknown) => {
         this.journalList = res as Entry[];
         console.log("RES", res);
       })

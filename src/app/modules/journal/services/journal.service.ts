@@ -14,8 +14,14 @@ export class JournalService {
     private readonly jwtService: JwtService
   ) { }
 
-  getEntriesPerUser(userId: string) {
-    return this.http.get(`journal/my_journals/${userId}`)
+  getEntriesPerUser() {
+    console.log(`Fetching entries for user ID: `);
+    
+    return this.http.get('journal/my_journals')
+  }
+
+  getEntryById(id: string) {
+    return this.http.get(`journal/my_journal/${id}`);
   }
 
   createJournal(journal: Entry) {
@@ -23,6 +29,10 @@ export class JournalService {
     console.log(journal);
     
     return this.http.post('journal', journal );
+  }
+
+  getMyJournals() {
+    return this.http.get('journal/my_journals');
   }
 
 }

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { JournalCardComponent } from '../journal/components/journal-card/journal-card.component';
+import { JournalDetailComponent } from './components/journal-detail/journal-detail.component';
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    JournalCardComponent
+    JournalCardComponent,
+    JournalDetailComponent
   ],
   imports: [
     CommonModule,
