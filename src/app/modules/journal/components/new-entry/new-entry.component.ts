@@ -36,7 +36,7 @@ export class NewEntryComponent implements OnInit {
     this.decodedToken = this.jwt.decodeToken(token as string);
     console.log(this.decodedToken);
 
-    const user = this.decodedToken.user
+    const user = this.decodedToken
 
     if (!user) {
       throw new Error("User not found in token");
@@ -48,7 +48,7 @@ export class NewEntryComponent implements OnInit {
     const body = {
       title: this.newEntryForm.value.title,
       content: this.newEntryForm.value.content,
-      user_id: this.decodedToken.user.id
+      user_id: this.decodedToken.id
     }
     console.log(body);
     
@@ -56,7 +56,7 @@ export class NewEntryComponent implements OnInit {
       next: (response) => {
         console.log("Journal entry created successfully", response);
         this.newEntryForm.reset();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/my-entries']);
       }
       , error: (error) => {
         console.error("Error creating journal entry", error);

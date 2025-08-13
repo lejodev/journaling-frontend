@@ -11,6 +11,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { LayoutModule } from './layout/layout.module';
 import { AuthInterceptor } from './modules/auth/interceptors/auth.interceptor';
 import { JournalModule } from './modules/journal/journal.module';
+import { ModalsModule } from './shared/modals/modals.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { JournalModule } from './modules/journal/journal.module';
     HttpClientModule,
     DashboardModule,
     LayoutModule,
-    JournalModule
+    JournalModule,
+    ModalsModule
+    
   ],
   providers: [
     {

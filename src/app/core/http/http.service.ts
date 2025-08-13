@@ -34,4 +34,8 @@ export class HttpService {
     return this.http.post(this.api(url), body, {headers, params})
   }
 
+  patch<T>(url: string, body: any, headers?: HttpHeaders, params?: HttpParams): Observable<T | object> {
+    return this.http.patch(this.api(url), body, { headers, params })
+  }
+
 }

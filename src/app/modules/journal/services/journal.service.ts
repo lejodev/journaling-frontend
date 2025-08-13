@@ -16,7 +16,7 @@ export class JournalService {
 
   getEntriesPerUser() {
     console.log(`Fetching entries for user ID: `);
-    
+
     return this.http.get('journal/my_journals')
   }
 
@@ -27,12 +27,25 @@ export class JournalService {
   createJournal(journal: Entry) {
 
     console.log(journal);
-    
-    return this.http.post('journal', journal );
+
+    return this.http.post('journal', journal);
   }
 
   getMyJournals() {
     return this.http.get('journal/my_journals');
+  }
+
+  patchJournal(partialJournal: Partial<Entry>, id: string) {
+    console.log('patching journal', partialJournal);
+    return this.http.patch(`journal/${id}`, partialJournal).subscribe({
+      next: (res) => {
+        console.log(res);
+
+      }, error: (err) => {
+        console.log(err);
+
+      }
+    })
   }
 
 }

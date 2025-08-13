@@ -1,0 +1,11 @@
+.entry-card {
+    background-color: rgb(12, 23, 34);  
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    .mat-card {
+        width: 50%;
+    }
+}

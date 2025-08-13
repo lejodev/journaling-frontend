@@ -1,0 +1,27 @@
+<div mat-dialog-title>
+    <h1>Edit your entry</h1>
+</div>
+<form [formGroup]="editEntryForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>
+                    Title
+                </mat-label>
+                <input formControlName="title" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>
+                    Content
+                </mat-label>
+                <textarea formControlName="content" matInput ></textarea>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="action">
+            <button mat-raised-button [mat-dialog-close]="false" >cancel</button>
+            <button [disabled]="!editEntryForm.valid" mat-raised-button color="primary" type="submit" >Save</button>
+        </div>
+    </div>
+</form>
