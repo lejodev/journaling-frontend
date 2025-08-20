@@ -1,4 +1,10 @@
 .journal-card-item {
+    height: 20vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    p {
+        max-height: 10vh;
+    }
     &:hover {
         transform: scale(1.01);
         transition: transform 0.2s ease-in-out;
