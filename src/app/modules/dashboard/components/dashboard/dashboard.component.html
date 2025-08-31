@@ -1,6 +1,10 @@
 <mat-card class="dashboard-card">
 
     <div class="journal-grid">
-        <app-journal-card *ngFor="let item of journalList" [journal]="item"></app-journal-card>
+        <app-journal-card
+         *ngFor="let item of journalList"
+          [journal]="item"
+          (delete)="onDeleteJournal($event)"
+          ></app-journal-card>
     </div>
 </mat-card>

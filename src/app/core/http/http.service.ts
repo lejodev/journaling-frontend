@@ -38,4 +38,8 @@ export class HttpService {
     return this.http.patch(this.api(url), body, { headers, params })
   }
 
+  delete<T>(url: string, headers?:HttpHeaders, params?:HttpParams): Observable<T | object> {
+    return this.http.delete(this.api(url), {headers, params})
+  }
+
 }

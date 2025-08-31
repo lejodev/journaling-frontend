@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class JournalCardComponent implements OnInit {
   @Input() journal!: any
+  @Output() delete = new EventEmitter<any>();
 
   constructor(private router: Router) { }
 
@@ -18,6 +19,14 @@ export class JournalCardComponent implements OnInit {
     // Handle click event, e.g., navigate to journal details
     console.log('Journal clicked:', this.journal);
     this.router.navigate(['/my-entries/', this.journal.id]);
+  }
+
+  onClickDelete(event: Event) {
+    event.stopPropagation();
+
+    // Handle delete event
+    console.log('Delete journal:', this.journal);
+    this.delete.emit(this.journal);
   }
 
 }

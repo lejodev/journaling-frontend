@@ -3,4 +3,7 @@
     <mat-card-content>
         <p>{{journal.content}}</p>
     </mat-card-content>
+    <mat-card-actions>
+        <button mat-button color="warn" (click)="onClickDelete($event)">Delete</button>
+    </mat-card-actions>
 </mat-card>

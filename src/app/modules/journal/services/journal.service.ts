@@ -48,4 +48,8 @@ export class JournalService {
     })
   }
 
+  deleteEntry(id: string) {
+    return this.http.delete(`journal/${id}`);
+  }
+
 }
