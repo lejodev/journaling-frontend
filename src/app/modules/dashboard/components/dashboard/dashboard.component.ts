@@ -24,22 +24,20 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     try {
-      console.log('IINN');
-
       const token = this.authService.getToken("journalUserToken");
       if (!token || !this.authService.isLoggedIn("journalUserToken")) {
         this.router.navigate(['/auth/signin']);
         return;
       }
       this.decodedToken = this.jwt.decodeToken(token);
-      console.log(this.decodedToken);
 
-      console.log('Token:', token, 'Decoded:', this.decodedToken.id);
+      // 1. Fetch from backend and update the subject
+      this.journalService.getEntriesPerUser().subscribe();
 
-      this.journalService.getEntriesPerUser().subscribe((res: unknown) => {
-        this.journalList = res as Entry[];
-        console.log("RES", res);
-      })
+      // 2. Subscribe to the subject for reactive updates
+      this.journalService.entries$.subscribe(entries => {
+        this.journalList = entries;
+      });
 
     } catch (error) {
       console.error('Error in DashboardComponent ngOnInit:', error);
@@ -56,6 +54,11 @@ export class DashboardComponent implements OnInit {
       this.journalService.deleteEntry(journal.id).subscribe({
         next: (res) => {
           console.log(res);
+          const updatedEntries = this.journalList.filter(entry => entry.id !== journal.id)
+          this.journalService.setEntries(updatedEntries);
+
+          console.log(updatedEntries);
+          
 
         },
         error: (err) => {

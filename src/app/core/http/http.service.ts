@@ -26,8 +26,8 @@ export class HttpService {
     return endpoint
   }
 
-  get<T>(endpoint: string, headers?: HttpHeaders, params?: HttpParams): Observable<T | T[] | unknown> {
-    return this.http.get(this.api(endpoint), { headers, params })
+  get<T>(endpoint: string, headers?: HttpHeaders, params?: HttpParams): Observable<T | T[]> {
+    return this.http.get<T | T[]>(this.api(endpoint), { headers, params })
   }
 
   post<T>(url: string, body: any, headers?: HttpHeaders, params?: HttpParams): Observable<T | object> {
